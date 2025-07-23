@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi Sekarang - Peduli Hutan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-oBWoyCBEfXJPkLghQdM04DRvNnK5cuFzXqXZU2lgSuK+0vH0b4pgyWAb8glL78JKgHQKxiyzvSrX+u59DZ3Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Donasi untuk Pelestarian Hutan - Peduli Hutan">
+    <meta property="og:description" content="Bantu kami melestarikan hutan Indonesia dengan berdonasi sekarang">
+    <meta property="og:image" content="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fa9447bb-f25e-4bee-9db6-7a669e9cc5e8.png">
+    <meta property="og:url" content="https://www.pedulihutan.org/donate.html">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Peduli Hutan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="why-forests.html">Mengapa Hutan Penting?</a></li>
+                    <li><a href="action.html">Apa yang Bisa Dilakukan?</a></li>
+                    <li><a href="donate.html" class="active">Donasi</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h3>Dukung Misi Kami Melalui Donasi</h3>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                Setiap kontribusi Anda, sekecil apapun, akan sangat berarti dalam upaya kami melestarikan hutan dan keanekaragaman hayati. Pilih jumlah donasi Anda atau masukkan jumlah kustom.
+            </p>
+
+            <div class="donation-options grid-3">
+                <div class="card donation-card" data-amount="50000">
+                    <i class="fa fa-seedling fa-3x"></i>
+                    <h4>Rp 50.000</h4>
+                    <p>Menanam 1 pohon dan merawatnya selama setahun.</p>
+                </div>
+                <div class="card donation-card" data-amount="100000">
+                    <i class="fa fa-tree fa-3x"></i>
+                    <h4>Rp 100.000</h4>
+                    <p>Mendukung edukasi lingkungan untuk 10 anak.</p>
+                </div>
+                <div class="card donation-card" data-amount="250000">
+                    <i class="fa fa-shield-alt fa-3x"></i>
+                    <h4>Rp 250.000</h4>
+                    <p>Membantu patroli anti-penebangan liar selama sehari.</p>
+                </div>
+                <div class="card donation-card" data-amount="500000">
+                    <i class="fa fa-hand-holding-dollar fa-3x"></i>
+                    <h4>Rp 500.000</h4>
+                    <p>Mendukung riset konservasi spesies langka.</p>
+                </div>
+                <div class="card donation-card" data-amount="1000000">
+                    <i class="fa fa-globe fa-3x"></i>
+                    <h4>Rp 1.000.000</h4>
+                    <p>Kontribusi besar untuk program restorasi ekosistem.</p>
+                </div>
+                <div class="card donation-card" data-amount="custom">
+                    <i class="fa fa-money-bill-wave fa-3x"></i>
+                    <h4>Jumlah Lain</h4>
+                    <p>Donasi sesuai keinginan Anda.</p>
+                </div>
+            </div>
+
+            <div class="donation-tiers">
+                <h4>Tingkat Donasi</h4>
+                <div class="tiers">
+                    <div class="tier supporter"><i class="fas fa-leaf"></i> Supporter Rp 50k-100k</div>
+                    <div class="tier partner"><i class="fas fa-hands-helping"></i> Partner Rp 250k-500k</div>
+                    <div class="tier guardian"><i class="fas fa-shield-alt"></i> Guardian Rp 1jt+</div>
+                </div>
+            </div>
+            <div class="donation-form-container" style="margin-top: 50px;">
+                <form class="contact-form donation-detail-form" id="donationForm">
+                    <h4>Detail Donasi</h4>
+                    <div class="donation-summary" style="text-align: center; margin-bottom: 20px; font-weight: 600; font-size: 1.2em; color: var(--primary-color);">
+                        Jumlah Donasi Anda: <span id="selected-donation-amount">Rp 0</span>
+                        <div class="impact-counter">
+                            Hari ini terkumpul: <span class="counter-value">Rp 2.500.000</span> dari <span class="counter-target">70.000.000</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 49%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="number" id="custom-amount-input" class="custom-amount-input" placeholder="Masukkan Jumlah Nominal ">
+                    <div class="form-group">
+                        <input type="text" id="donor-name" placeholder="Nama Lengkap" required>
+                        <div class="error-message" id="name-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="donor-email" placeholder="Email" required>
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+                    <textarea id="donor-message" placeholder="Pesan untuk Peduli Hutan" rows="3"></textarea>
+                </form>
+
+                <div class="contact-form payment-method-form">
+                    <h4>Metode Pembayaran</h4>
+                    <p style="text-align: left; font-size: 0.9em; color: #555;">Pilih salah satu metode pembayaran yang Anda sukai:</p>
+                    <div class="payment-methods-grid">
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="qris">
+                            <img src="images/QRIS (Quick Response Code Indonesia Standard) Logo (PNG2160p) - Vector69Com.png" alt="QRIS" class="payment-icon">
+                            <div>
+                                <strong>QRIS</strong><br>
+                                Scan dengan aplikasi pembayaran
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="bank_transfer" checked>
+                            <img src="images/bank.png.png" alt="Transfer Bank" class="payment-icon">
+                            <div>
+                                <strong>Transfer Bank</strong><br>
+                                BCA, Mandiri, BRI, dan lainnya
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="e_wallet">
+                            <img src="images/e-wallet.png" alt="E-Wallet" class="payment-icon">
+                            <div>
+                                <strong>E-Wallet</strong><br>
+                                OVO, GoPay, Dana, ShopeePay
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="credit_card">
+                            <img src="images/credit card.png" alt="Kartu Kredit" class="payment-icon">
+                            <div>
+                                <strong>Kartu Kredit/Debit</strong><br>
+                                Visa, MasterCard, JCB
+                            </div>
+                        </label>
+                    </div>
+                    <div id="paymentMethodDetails">
+                        <div id="qris-details" style="display:none; text-align: center;">
+                            <h4>Pembayaran via QRIS</h4>
+                            <p>Scan QR code di bawah ini menggunakan aplikasi pembayaran Anda.</p>
+                            <img src="images/KRIS.png" alt="QRIS Code" id="qris-code-image" style="width: 200px; height: 200px; border: 1px solid #eee; border-radius: 5px; margin: 20px auto;">
+                            <p>Jumlah Donasi: <strong id="qris-amount-display">Rp 0</strong></p>
+                            <p id="qris-countdown-display" style="font-weight: bold; color: #388E3C;"></p>
+                            <p style="font-size: 0.9em; color: #777;">Mohon selesaikan pembayaran dalam waktu yang ditentukan.</p>
+                        </div>
+
+                        <div id="bank-transfer-details" style="display:none;">
+                            <h4>Instruksi Pembayaran Bank Transfer</h4>
+                            <p>Silakan transfer donasi Anda ke salah satu rekening berikut:</p>
+                            <ul>
+                                <li><strong>Bank Mandiri:</strong> 1234-5678-9012 (a.n. Peduli Hutan)</li>
+                                <li><strong>Bank BCA:</strong> 9876-5432-1098 (a.n. Peduli Hutan)</li>
+                                <li><strong>Bank BRI:</strong> 1122-3344-5566 (a.n. Peduli Hutan)</li>
+                            </ul>
+                            <p>Mohon masukkan nominal donasi yang sesuai dan tambahkan catatan "Donasi Peduli Hutan" jika memungkinkan.</p>
+                            <p>Setelah transfer, konfirmasikan pembayaran Anda melalui email atau formulir konfirmasi yang akan muncul setelah Anda klik 'Lanjutkan Pembayaran'.</p>
+                        </div>
+                        <div id="e-wallet-details" style="display:none;">
+                            <h4>Instruksi Pembayaran E-wallet</h4>
+                            <p>Pilih e-wallet Anda dan ikuti instruksi yang muncul:</p>
+                            <div class="e-wallet-options">
+                                <button type="button" class="btn btn-e-wallet" data-wallet="gopay"><img src="images/gopay.png" alt="GoPay"> GoPay</button>
+                                <button type="button" class="btn btn-e-wallet" data-wallet="ovo"><img src="images/OVO.png" alt="OVO"> OVO</button>
+                                <button type="button" class="btn btn-e-wallet" data-wallet="dana"><img src="images/dana.png" alt="Dana"> Dana</button>
+                            </div>
+                            <div id="eWalletInstructions" style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+                                <p>Silakan pilih salah satu opsi e-wallet di atas untuk melihat instruksi pembayaran.</p>
+                            </div>
+                            <p>Anda akan diarahkan ke aplikasi e-wallet Anda atau kode QR akan ditampilkan untuk pembayaran.</p>
+                        </div>
+                        <div id="credit-card-details" style="display:none;">
+                            <h4>Instruksi Pembayaran Kartu Kredit</h4>
+                            <p>Masukkan detail kartu kredit Anda. Pembayaran akan diproses melalui gateway pembayaran yang aman.</p>
+                            <div class="form-group">
+                                <label for="cardNumber">Nomor Kartu</label>
+                                <input type="text" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
+                                <div class="error-message" id="cardNumber-error"></div>
+                            </div>
+                            <div style="display: flex; gap: 15px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="expiryDate">Tanggal Kadaluarsa</label>
+                                    <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                                    <div class="error-message" id="expiryDate-error"></div>
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="xxx" maxlength="4" required>
+                                    <div class="error-message" id="cvv-error"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Nama Pemegang Kartu</label>
+                                <input type="text" id="cardName" placeholder="Nama sesuai kartu" required>
+                                <div class="error-message" id="cardName-error"></div>
+                            </div>
+                            <p class="small-text">Transaksi Anda aman dan terenkripsi. Kami tidak menyimpan detail kartu kredit Anda.</p>
+                        </div>
+                        <p id="default-payment-message">Pilih metode pembayaran untuk melihat instruksi.</p>
+                    </div>
+                    <button type="submit" class="btn" id="process-donation-btn">Lanjutkan Pembayaran</button>
+                    <div id="thank-you-message" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 8px; color: #2e7d32; font-weight: 600;">
+                        Terima kasih atas donasi Anda! Kami sangat menghargai dukungan Anda.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+   <section class="section-padding">
+    <div class="container">
+        <h3>Pertanyaan Umum</h3>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-btn">Bagaimana donasi saya digunakan?</button>
+                <div class="accordion-content">
+                    <p>Donasi digunakan untuk program pelestarian hutan, edukasi lingkungan, dan penelitian konservasi dengan transparansi penuh dalam pelaporan.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn">Bisakah saya mendapatkan invoice?</button>
+                <div class="accordion-content">
+                    <p>Ya, invoice resmi akan dikirimkan ke email Anda setelah donasi berhasil diproses.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn">Apakah donasi saya bisa dibatalkan atau dikembalikan?</button>
+                <div class="accordion-content">
+                    <p>Donasi yang sudah diproses tidak dapat dibatalkan atau dikembalikan. Kami menyarankan Anda untuk memeriksa kembali jumlah donasi sebelum melanjutkan pembayaran.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn">Apakah informasi pribadi saya aman?</button>
+                <div class="accordion-content">
+                    <p>Kami sangat menjaga privasi data Anda. Semua informasi pribadi yang Anda berikan akan dienkripsi dan digunakan sesuai dengan kebijakan privasi kami. Kami tidak akan membagikan data Anda kepada pihak ketiga tanpa persetujuan Anda.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn">Bagaimana saya bisa melihat dampak donasi saya?</button>
+                <div class="accordion-content">
+                    <p>Kami secara rutin mempublikasikan laporan dampak dan pembaruan proyek di bagian Berita/Blog kami. Anda juga bisa mengikuti media sosial kami untuk melihat kegiatan terbaru dan bagaimana donasi Anda berkontribusi pada pelestarian hutan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <footer>
+    <div class="container footer-minimal">
+        <div class="footer-left">
+            <p>&copy; 2025 Peduli Hutan. All rights reserved.</p>
+        </div>
+        <div class="footer-center">
+            <p>Menjaga Hutan, Menjaga Masa Depan</p>
+        </div>
+        <div class="footer-right">
+            <a href="https://www.facebook.com/pedulihutanresmi" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/pedulihutan_id" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/pedulihutan_id" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/pedulihutan" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

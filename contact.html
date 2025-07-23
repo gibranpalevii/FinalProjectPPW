@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Peduli Hutan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrojRzFhD9XG/2lS5j7u6rY/w9lA3w5G+m+z5E0l9U6p/7Xb7T+aQ1q5n8t/q2wA/x4M5p2z9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Contact Page Specific Styling */
+        .contact-form-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.95); /* Slightly more opaque */
+            padding: 40px; /* Add padding to the container */
+        }
+        
+        .contact-info .card {
+            background: #f8f9fa;
+            border-left: 5px solid var(--secondary-color); /* Use secondary color for consistency */
+            padding: 30px; /* Adjust padding */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Lighter shadow */
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Form Styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Jarak antar elemen */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Jarak antar grup */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-bg);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px; /* Padding lebih besar */
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Sudut lebih membulat */
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em; /* Ukuran font standar */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color); /* Highlight on focus */
+            box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.3); /* Efek fokus lebih menonjol */
+            outline: none;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .form-row .btn {
+            padding: 12px 25px; /* Padding untuk tombol */
+            font-size: 1em;
+            border-radius: 8px;
+            flex: 1; /* Tombol mengambil ruang yang sama */
+        }
+
+        /* Error Message Styles */
+        .error-message {
+            color: #D32F2F; /* Merah gelap */
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: none; /* Sembunyikan secara default */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr; /* Kolom menumpuk di bawah 768px */
+            }
+            .contact-form-container {
+                padding: 25px; /* Kurangi padding di mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Peduli Hutan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="why-forests.html">Mengapa Hutan Penting?</a></li>
+                    <li><a href="action.html">Apa yang Bisa Dilakukan?</a></li>
+                    <li><a href="donate.html">Donasi</a></li>
+                    <li><a href="contact.html" class="active">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h3>Hubungi Kami</h3>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                Kami sangat senang mendengar dari Anda! Apakah Anda memiliki pertanyaan, ide kolaborasi, atau ingin menjadi relawan? Silakan hubungi kami melalui formulir di bawah ini atau melalui media sosial kami.
+            </p>
+            <div class="grid-2">
+                <div class="contact-info">
+                    <div class="card">
+                        <h4><i class="fas fa-info-circle"></i> Informasi Kontak</h4>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:infopedulihutansi05@gmail.com" class="text-link">infopedulihutansi05@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <strong>Telepon:</strong> <a href="tel:+6285156735183" class="text-link">+62 851 - 5673 - 5183</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Alamat:</strong> Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p>
+                        
+                        <div class="working-hours">
+                            <h5><i class="fas fa-clock"></i> Jam Operasional</h5>
+                            <p><strong>Senin - Jumat:</strong> 07:00 - 17:00 WIB</p>
+                            <p><strong>Sabtu:</strong> 07:00 - 14:00 WIB</p>
+                            <p><strong>Minggu & Hari Libur:</strong> Tutup</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <p>Ikuti kami dan bergabunglah dengan komunitas kami:</p>
+                        <a href="https://www.facebook.com/pedulihutanresmi" class="social-icon" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/pedulihutan_id" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/pedulihutan_id" class="social-icon" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/pedulihutan" class="social-icon" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" placeholder="Masukkan nama lengkap Anda" required>
+                            <div class="error-message" id="name-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" placeholder="contoh@email.com" required>
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <select id="subject" required>
+                                <option value="" disabled selected>Pilih subjek pesan</option>
+                                <option value="partnership">Kerja Sama</option>
+                                <option value="volunteer">Relawan</option>
+                                <option value="donation">Donasi</option>
+                            </select>
+                            <div class="error-message" id="subject-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan Anda</label>
+                            <textarea id="message" placeholder="Tulis pesan Anda disini..." rows="7" required></textarea>
+                            <div class="error-message" id="message-error"></div>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="btn">
+                                <i class="fas fa-paper-plane"></i> Kirim Pesan
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                <i class="fas fa-redo"></i> Reset Form
+                            </button>
+                        </div>
+                        <div id="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-minimal">
+            <div class="footer-left">
+                <p>&copy; 2025 Peduli Hutan. All rights reserved.</p>
+            </div>
+            <div class="footer-center">
+                <p>Menjaga Hutan, Menjaga Masa Depan</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.facebook.com/pedulihutanresmi" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/pedulihutan_id" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/pedulihutan_id" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/pedulihutan" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // JavaScript untuk validasi form
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectSelect = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            const formStatus = document.getElementById('form-status');
+
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah pengiriman formulir default
+
+                let isValid = true;
+
+                // Clear previous error messages
+                document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+                // Validate Name
+                if (nameInput.value.trim() === '') {
+                    showError(document.getElementById('name-error'), 'Nama lengkap wajib diisi.');
+                    isValid = false;
+                }
+
+                // Validate Email
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailInput.value.trim() === '') {
+                    showError(document.getElementById('email-error'), 'Alamat email wajib diisi.');
+                    isValid = false;
+                } else if (!emailPattern.test(emailInput.value.trim())) {
+                    showError(document.getElementById('email-error'), 'Format email tidak valid.');
+                    isValid = false;
+                }
+
+                // Validate Subject
+                if (subjectSelect.value === '') {
+                    showError(document.getElementById('subject-error'), 'Subjek pesan wajib dipilih.');
+                    isValid = false;
+                }
+
+                // Validate Message
+                if (messageInput.value.trim() === '') {
+                    showError(document.getElementById('message-error'), 'Pesan wajib diisi.');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    formStatus.textContent = 'Pesan Anda berhasil dikirim!';
+                    formStatus.style.backgroundColor = '#e8f5e9';
+                    formStatus.style.color = '#2e7d32';
+                    // Simulasi pengiriman data
+                    console.log('Form Submitted:', {
+                        name: nameInput.value,
+                        email: emailInput.value,
+                        subject: subjectSelect.value,
+                        message: messageInput.value
+                    });
+                    contactForm.reset(); // Reset form setelah pengiriman
+                } else {
+                    formStatus.textContent = 'Mohon periksa kembali input Anda.';
+                    formStatus.style.backgroundColor = '#ffebee';
+                    formStatus.style.color = '#c62828';
+                }
+            });
+
+            function showError(element, message) {
+                element.textContent = message;
+                element.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

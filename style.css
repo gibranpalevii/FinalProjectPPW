@@ -1,0 +1,1492 @@
+/* General Styling */
+:root {
+    --primary-color: #388E3C; /* Hijau Hutan yang lebih dalam */
+    --secondary-color: #66BB6A; /* Hijau yang lebih cerah */
+    --accent-color: #FFC107; /* Kuning keemasan untuk aksen */
+    --text-color: #333;
+    --light-bg: #F5F5F5; /* Abu-abu terang */
+    --dark-bg: #1A361A; /* Hijau gelap yang sangat pekat */
+    --white: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2); /* Sedikit lebih gelap */
+    --shadow-strong: rgba(0, 0, 0, 0.3); /* Lebih kuat */
+    --gradient-green: linear-gradient(to right, #388E3C, #66BB6A); /* Gradien hijau */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7; /* Sedikit lebih lega */
+    color: var(--text-color);
+    background-color: var(--white);
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    scroll-behavior: smooth; /* Smooth scroll untuk anchor links */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark-bg);
+    margin-bottom: 20px;
+    font-weight: 700; /* Lebih tebal */
+}
+
+h2 {
+    font-size: 3.5em; /* Lebih besar */
+    text-align: center;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 2.8em; /* Lebih besar */
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px; /* Tambah padding bawah untuk garis */
+    color: var(--primary-color); /* Warna judul section */
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; /* Garis lebih panjang */
+    height: 5px; /* Garis lebih tebal */
+    background-color: var(--accent-color); /* Warna garis aksen */
+    border-radius: 3px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px var(--shadow-medium); /* Shadow lebih modern dan kuat */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--white);
+    font-size: 2.2em; /* Lebih besar */
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Huruf kapital */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 15px; /* Jarak antar menu lebih besar */
+}
+
+header nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600; /* Lebih tebal */
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 8px; /* Padding bawah untuk underline */
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Hero Section */ 
+.hero {
+    background-image: url('images/backgorund hutan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--white);
+    text-align: center;
+    padding: 180px 20px; /* Sesuaikan padding untuk tinggi hero section */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Atur tinggi minimal agar gambar terlihat */
+    animation: fadeInBackground 2s ease-out; /* Animasi fade in untuk background */
+}
+
+/* Overlay gelap agar teks lebih mudah dibaca */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Warna hitam dengan transparansi 60% */
+    z-index: 1;
+}
+
+/* Pastikan konten di dalam hero berada di atas overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2, .hero p {
+    color: var(--white);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* Shadow teks lebih kuat */
+}
+
+.hero h2 {
+    font-size: 4.5em; /* Lebih besar lagi */
+    margin-bottom: 25px;
+    animation: slideInUp 1s ease-out forwards; /* Animasi teks judul */
+    opacity: 0; /* Mulai dengan opacity 0 */
+    animation-delay: 0.5s;
+}
+
+.hero p {
+    font-size: 1.6em; /* Lebih besar */
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: slideInUp 1s ease-out forwards; /* Animasi teks paragraf */
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+/* Keyframe animations */
+@keyframes fadeInBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--gradient-green); /* Gunakan gradien */
+    color: var(--white);
+    padding: 18px 40px; /* Padding lebih besar */
+    text-decoration: none;
+    border-radius: 50px; /* Bentuk pil */
+    transition: all 0.4s ease; /* Transisi lebih halus */
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em; /* Ukuran font lebih besar */
+    box-shadow: 0 6px 15px var(--shadow-medium); /* Shadow lebih kuat */
+    margin: 0 15px; /* Jarak antar tombol */
+    text-transform: uppercase; /* Huruf kapital */
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: var(--primary-color); /* Kembali ke warna solid saat hover */
+    transform: translateY(-5px); /* Efek angkat lebih tinggi */
+    box-shadow: 0 10px 25px var(--shadow-strong); /* Shadow lebih kuat saat hover */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Warna abu-abu */
+    background: none; /* Hapus gradien untuk secondary */
+    border: 2px solid var(--white); /* Border putih */
+    box-shadow: none; /* Hapus shadow default */
+}
+
+.btn-secondary:hover {
+    background-color: var(--white); /* Background putih saat hover */
+    color: var(--primary-color); /* Teks hijau saat hover */
+    border-color: var(--primary-color); /* Border hijau saat hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-strong);
+}
+
+/* Sections */
+.section-padding {
+    padding: 40px 0; /* Mengurangi padding dari 100px menjadi 70px */
+    opacity: 0; /* Default hidden for scroll animation */
+    transform: translateY(20px); /* Default slightly down for scroll animation */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+/* Anda juga bisa mengurangi margin-bottom pada h3 jika ingin merapatkan judul dengan kontennya */
+h3 {
+    /* ... kode lain ... */
+    margin-bottom: 20px; /* Mengurangi margin-bottom dari 50px menjadi 30px */
+}
+
+/* Untuk jarak antar kartu di grid, Anda bisa menyesuaikan gap */
+.grid-3, .grid-2 {
+    gap: 20px; /* Mengurangi jarak antar grid dari 40px menjadi 30px */
+}
+
+.section-padding.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+/* Grid Layouts */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Jarak antar grid lebih besar */
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+/* Cards */
+.card {
+    background-color: var(--white);
+    padding: 35px; /* Padding lebih besar */
+    border-radius: 15px; /* Sudut lebih membulat */
+    box-shadow: 0 8px 20px var(--shadow-light); /* Shadow lebih lembut dan besar */
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border-top: 6px solid var(--primary-color); /* Garis atas lebih tebal */
+    overflow: hidden; /* Penting untuk efek pseudo-element */
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Tinggi sama dengan border-top */
+    background: var(--gradient-green); /* Gradien pada border atas */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efek angkat lebih tinggi */
+    box-shadow: 0 15px 35px var(--shadow-medium); /* Shadow lebih kuat saat hover */
+    border-color: var(--secondary-color); /* Ubah warna border saat hover */
+}
+
+.card h4 {
+    color: var(--dark-bg); /* Warna teks h4 */
+    margin-top: 0;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.card:hover h4 {
+    color: var(--primary-color); /* Ubah warna h4 saat hover */
+}
+
+.card i { /* Styling untuk ikon di dalam kartu */
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover i {
+    transform: scale(1.1); /* Efek zoom pada ikon */
+}
+
+
+/* Testimonial specific styling */
+.testimonial-text {
+    font-style: italic;
+    font-size: 1.15em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.05em;
+}
+
+
+.action-item {
+    background-color: var(--white);
+    padding: 35px;
+    border-left: 8px solid var(--primary-color); /* Garis lebih tebal */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.action-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--shadow-medium);
+    border-left-color: var(--accent-color); /* Ubah warna border saat hover */
+}
+
+.action-item h4 {
+    color: var(--dark-bg);
+    margin-top: 0;
+    font-size: 1.4em;
+    transition: color 0.3s ease;
+}
+
+.action-item:hover h4 {
+    color: var(--primary-color);
+}
+
+.action-item i {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.action-item:hover i {
+    transform: scale(1.1);
+}
+
+/* Contact Form - digunakan juga sebagai base untuk form donasi */
+.contact-form {
+    max-width: 700px; /* Ini akan di-override oleh flexbox untuk layout 2 kolom */
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px; /* Padding lebih besar */
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-medium); /* Shadow lebih kuat */
+    border-top: 8px solid var(--primary-color); /* Border atas */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.contact-form input[type="number"] { /* Tambahkan input number */
+    width: 100%;
+    padding: 18px; /* Padding lebih besar */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Sudut lebih membulat */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Pastikan padding dihitung dalam lebar/tinggi */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus,
+.contact-form input[type="number"]:focus { /* Tambahkan input number */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.3); /* Efek fokus lebih menonjol */
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+/* Social Links */
+.social-links {
+    text-align: center;
+    padding: 30px 0; /* Padding vertikal */
+    background-color: var(--light-bg); /* Background terpisah */
+    margin-top: 50px; /* Jarak dari konten atas */
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.social-links p {
+    font-size: 1.3em; /* Lebih besar */
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--dark-bg);
+}
+
+.social-links .social-icon {
+    display: inline-block;
+    margin: 0 18px; /* Jarak antar ikon lebih besar */
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 2.5em; /* Perbesar ukuran ikon */
+    transition: all 0.3s ease; /* Transisi untuk semua properti */
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links .social-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.social-links .social-icon:hover::before {
+    width: 120%;
+    height: 120%;
+}
+
+.social-links .social-icon:hover {
+    color: var(--white); /* Warna ikon putih saat hover */
+    transform: translateY(-5px) scale(1.1); /* Efek angkat dan zoom */
+    text-shadow: 0 0 10px rgba(255,255,255,0.7); /* Shadow pada ikon */
+}
+
+/* Footer */
+/* Footer Styling (Simple, Minimalist, Modern) */
+footer {
+    background-color: var(--dark-bg); /* Warna hijau gelap yang pekat dari root */
+    color: rgba(255, 255, 255, 0.8); /* Teks putih transparan untuk tampilan lembut */
+    padding: 30px 0; /* Padding atas dan bawah */
+    font-size: 1em;
+    text-align: center; /* Teks default di tengah */
+}
+
+.footer-minimal {
+    display: flex;
+    flex-wrap: wrap; /* Memungkinkan wrap pada layar kecil */
+    justify-content: space-between; /* Menyebarkan item */
+    align-items: center; /* Pusatkan secara vertikal */
+    gap: 15px; /* Jarak antar kolom pada flexbox */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1; /* Setiap bagian mengambil ruang yang sama */
+    min-width: 200px; /* Minimal lebar sebelum wrap */
+}
+
+.footer-center p {
+    font-weight: 600;
+    color: var(--secondary-color); /* Warna yang sedikit lebih cerah */
+    margin: 0; /* Hapus margin default p */
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end; /* Ikon sosial di kanan */
+    gap: 15px; /* Jarak antar ikon sosial */
+}
+
+.footer-right a {
+    color: rgba(255, 255, 255, 0.7); /* Warna ikon sosial */
+    font-size: 1.75em; /* Ukuran ikon */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: var(--accent-color); /* Warna aksen saat di-hover */
+    transform: translateY(-3px); /* Efek sedikit terangkat */
+}
+
+/* Responsif untuk footer */
+@media (max-width: 768px) {
+    .footer-minimal {
+        flex-direction: column; /* Stack vertikal pada layar kecil */
+        text-align: center;
+    }
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        min-width: unset; /* Hapus min-width */
+        width: 100%; /* Ambil lebar penuh */
+        margin-bottom: 10px; /* Jarak antar bagian */
+    }
+    .footer-right {
+        justify-content: center; /* Pusatkan ikon sosial di mobile */
+    }
+}
+
+/* --- Donation Page Specific Styles --- */
+.donation-options {
+    margin-top: 40px;
+}
+
+.donation-card {
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+    transition: all 0.3s ease;
+    position: relative; /* Untuk pseudo-element checkmark */
+}
+
+.donation-card:hover {
+    border-color: var(--secondary-color); /* Highlight on hover */
+}
+
+.donation-card.active-donation {
+    border-color: var(--primary-color); /* Active selection border */
+    box-shadow: 0 10px 25px var(--shadow-medium);
+    transform: translateY(-5px);
+}
+
+/* Checkmark for active donation card */
+.donation-card.active-donation::after {
+    content: '\f058'; /* Font Awesome check-circle icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--primary-color);
+    font-size: 1.8em;
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+.donation-card h4 i {
+    margin-right: 8px;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+/* OLD .donation-form - akan dipecah menjadi dua form di dalam container */
+/* .donation-form {
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    border-top: 6px solid var(--accent-color);
+} */
+
+.donation-form-container {
+    display: flex;
+    gap: 30px; /* Jarak antara dua kolom */
+    flex-wrap: wrap; /* Agar kolom menumpuk di layar kecil */
+    justify-content: center; /* Pusatkan kolom saat menumpuk */
+}
+
+.donation-detail-form,
+.payment-method-form {
+    flex: 1; /* Agar kedua kolom mengambil ruang yang sama */
+    min-width: 300px; /* Lebar minimum sebelum menumpuk */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    background-color: var(--white); /* Pastikan background putih */
+}
+
+.donation-detail-form {
+    border-top: 6px solid var(--primary-color); /* Border atas untuk detail donasi */
+}
+
+.payment-method-form {
+    border-top: 6px solid var(--accent-color); /* Border atas untuk metode pembayaran */
+    display: flex; /* Mengatur item di dalam form ini juga */
+    flex-direction: column;
+    justify-content: space-between; /* Untuk mendorong tombol ke bawah jika ada ruang */
+}
+
+
+.donation-form h4 { /* Akan tetap berlaku untuk kedua form */
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+/* Modern style for custom amount input */
+/* Sembunyikan secara default */
+.custom-amount-input {
+    opacity: 0;
+    /* Menggunakan max-height untuk transisi, agar padding dan border tetap ada */
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0; /* Pastikan tidak ada margin atas saat tersembunyi */
+    margin-bottom: 0; /* Pastikan tidak ada margin bawah saat tersembunyi */
+    padding: 0 18px; /* Padding horizontal tetap, vertikal 0 */
+    border: 1px solid transparent; /* Border transparan saat tersembunyi */
+    border-radius: 10px;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s ease-out, padding 0.4s ease-out, border-color 0.4s ease-out;
+    box-sizing: border-box;
+}
+
+/* Tampilkan saat kelas 'show' ditambahkan */
+.custom-amount-input.show {
+    opacity: 1;
+    max-height: 60px; /* Cukup tinggi untuk menampung input dengan padding */
+    margin-top: 10px; /* Jarak atas saat terlihat */
+    margin-bottom: 20px; /* Jarak bawah saat terlihat */
+    padding: 18px; /* Padding penuh saat terlihat */
+    border-color: #ddd; /* Border terlihat saat aktif */
+}
+
+/* Pastikan input kustom memiliki gaya yang sama dengan input lain di form */
+.donation-form .custom-amount-input.show, /* tetap gunakan .donation-form */
+.donation-form .custom-amount-input.show:focus {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05em;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-form .custom-amount-input.show:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.3);
+    outline: none;
+}
+
+
+/* Perubahan untuk payment methods agar lebih rapi */
+.payment-methods-grid { /* Ganti nama class dari .payment-methods */
+    display: flex; /* Gunakan flexbox untuk menata opsi pembayaran */
+    flex-direction: column; /* Tata dalam kolom */
+    gap: 15px; /* Jarak antar opsi */
+    margin-bottom: 30px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-bg);
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Border awal transparan */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Shadow halus */
+}
+
+.payment-option:hover {
+    background-color: #e0e0e0;
+    border-color: var(--secondary-color);
+    transform: translateY(-2px); /* Sedikit efek angkat */
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 15px;
+    accent-color: var(--primary-color); /* Warna radio button */
+    transform: scale(1.3); /* Ukuran radio button diperbesar sedikit */
+    cursor: pointer;
+}
+
+.payment-option img {
+    width: 40px; /* Ukuran ikon pembayaran */
+    height: auto;
+    margin-right: 15px;
+}
+
+/* Styling saat radio button dipilih */
+.payment-option input[type="radio"]:checked + img + div {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.payment-option input[type="radio"]:checked ~ img, /* Selector untuk ikon yang terkait */
+.payment-option input[type="radio"]:checked ~ div { /* Selector untuk teks yang terkait */
+    border-color: var(--primary-color); /* Border primary color saat dipilih */
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.2); /* Shadow lebih menonjol */
+}
+
+/* Untuk memastikan border highlight saat radio dipilih */
+.payment-option input[type="radio"]:checked {
+    border-color: var(--primary-color); /* Ini tidak akan bekerja langsung pada input radio */
+}
+
+/* Solusi untuk border pada parent label saat radio button dipilih */
+.payment-option input[type="radio"]:checked + .payment-icon + div { /* Hanya untuk teks */
+    /* style yang tidak mempengaruhi border parent */
+}
+
+/* Ini adalah cara yang lebih baik untuk menyorot seluruh label saat radio dipilih */
+.payment-option input[type="radio"]:checked {
+    /* Menyembunyikan radio button asli dan menggunakan pseudo-element untuk styling kustom */
+    /* Namun, jika ingin tetap terlihat, gunakan property accent-color */
+}
+/* Menyorot keseluruhan label saat radio button di dalamnya terpilih */
+.payment-option input[type="radio"]:checked:checked {
+    /* This rule will select the radio input itself if it's checked */
+    /* We need to style the parent label based on the checked state of its child */
+}
+
+/* Menggunakan general sibling combinator (~) atau adjacent sibling (+) */
+.payment-option input[type="radio"]:checked + .payment-icon + div {
+    /* Style the div next to the image, which is a sibling of the checked radio */
+    /* This means the 'div' is the third sibling. */
+}
+
+/* Untuk styling keseluruhan label, kita bisa memanfaatkan :has() (jika didukung) atau CSS murni lainnya */
+/* Dengan pendekatan saat ini, kita mengandalkan JS untuk menambahkan kelas aktif atau menargetkan child */
+
+/* Better way to highlight the entire payment option when checked */
+.payment-option:has(input[type="radio"]:checked) {
+    border-color: var(--primary-color); /* Border primary color saat dipilih */
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.2); /* Shadow lebih menonjol */
+    background-color: var(--secondary-color); /* Ubah background saat dipilih */
+    color: var(--white); /* Ubah warna teks saat dipilih */
+}
+
+/* Adjust text color inside checked option */
+.payment-option:has(input[type="radio"]:checked) strong,
+.payment-option:has(input[type="radio"]:checked) div {
+    color: var(--white);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero h2 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.3em;
+    }
+    h3 {
+        font-size: 2.4em;
+    }
+    .donation-options {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .donation-form-container {
+        flex-direction: column; /* Kolom menumpuk di bawah 992px */
+        gap: 20px;
+    }
+
+    .donation-detail-form,
+    .payment-method-form {
+        max-width: 600px; /* Batasi lebar saat menumpuk */
+        margin: 0 auto; /* Pusatkan saat menumpuk */
+        width: 90%; /* Sesuaikan lebar */
+    }
+
+}
+
+@media (max-width:786px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .hero {
+        padding: 120px 15px;
+        min-height: 60vh;
+    }
+    .hero h2 {
+        font-size: 2.5em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+
+    .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    .card, .action-item, .contact-form { /* contact-form umum */
+        margin: 0 15px; /* Tambahkan margin horizontal di mobile */
+    }
+
+    /* Spesifik untuk form donasi saat di mobile */
+    .donation-detail-form,
+    .payment-method-form {
+        margin: 0 15px; /* Pastikan margin berlaku */
+        padding: 20px; /* Kurangi padding di mobile */
+    }
+
+    .btn {
+        margin-bottom: 15px; /* Tambah jarak bawah untuk tombol di mobile */
+        width: calc(100% - 30px); /* Lebar penuh di mobile */
+        max-width: 300px; /* Batasi lebar maksimal */
+    }
+    .btn-secondary {
+        margin-top: 10px; /* Jarak antar tombol di mobile */
+    }
+    .social-links .social-icon {
+        font-size: 2em;
+        margin: 0 10px;
+    }
+    .payment-methods-grid { /* Ganti nama class */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 0.95em;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .card h4, .action-item h4, .donation-card h4 {
+        font-size: 1.2em;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea,
+    .contact-form input[type="number"] {
+        padding: 12px;
+    }
+    .payment-option {
+        flex-direction: column; /* Stack payment option content */
+        align-items: flex-start;
+        text-align: left;
+        padding: 10px;
+    }
+    .payment-option img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .payment-option input[type="radio"] {
+        align-self: flex-start;
+        margin-bottom: 10px;
+    }
+}
+
+/* Styling untuk .payment-methods (yang lama) dihapus karena diganti dengan .payment-methods-grid */
+/* dan styling .payment-option yang baru */
+
+/* Pastikan radio button tidak ikut scaling dengan img */
+.payment-option input[type="radio"] {
+    flex-shrink: 0; /* Mencegah radio button mengecil */
+}
+
+/* Latest News Section */
+#latest-news {
+    background-color: var(--light-bg);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.news-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar yang konsisten */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    display: block;
+}
+
+.news-card h4 {
+    color: var(--primary-color);
+    margin: 15px 15px 5px;
+    font-size: 1.3em;
+    line-height: 1.4;
+}
+
+.news-card .news-date {
+    font-size: 0.9em;
+    color: #777;
+    margin: 0 15px 10px;
+}
+
+.news-card p {
+    margin: 0 15px 15px;
+    flex-grow: 1; /* Memastikan paragraf mengisi ruang yang tersedia */
+}
+
+.news-card .read-more {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 15px 15px;
+    transition: color 0.3s ease;
+}
+
+.news-card .read-more:hover {
+    color: var(--primary-color);
+}
+
+.news-card .read-more i {
+    margin-left: 5px;
+    transition: margin-left 0.3s ease;
+}
+
+.news-card .read-more:hover i {
+    margin-left: 10px;
+}
+
+/* Responsiveness for News Section */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}
+
+/* Tambahkan di bagian bawah file style.css atau di bagian formulir */
+
+/* Styling untuk pesan error */
+.error-message {
+    color: #D32F2F; /* Merah gelap */
+    font-size: 0.85em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: none; /* Sembunyikan secara default */
+    text-align: left;
+}
+
+/* Styling untuk input yang memiliki error */
+.input-error {
+    border-color: #D32F2F !important; /* Border merah */
+    box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.2) !important; /* Shadow merah */
+}
+
+/* Tambahkan ini untuk mengelompokkan input dan pesan error */
+.form-group {
+    margin-bottom: 10px; /* Sesuaikan jarak antar grup */
+}
+
+/* Pastikan input di dalam form-group tetap 100% lebar */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+}
+
+/* Sesuaikan margin-bottom pada .contact-form input/textarea jika perlu */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.contact-form input[type="number"] {
+    margin-bottom: 0; /* Hapus margin-bottom default */
+}
+
+/* Gaya untuk bagian Pertanyaan Umum */
+.accordion {
+    border: 1px solid #ccc; /* Border untuk seluruh accordion */
+    border-radius: 8px; /* Sudut melengkung */
+    overflow: hidden; /* Menghindari overflow */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee; /* Garis pemisah antar item */
+}
+
+.accordion-item:last-child {
+    border-bottom: none; /* Menghapus garis bawah pada item terakhir */
+}
+
+.accordion-btn {
+    background-color: #f7f7f7; /* Warna latar belakang tombol */
+    color: #333; /* Warna teks */
+    padding: 15px; /* Padding untuk tombol */
+    width: 100%; /* Lebar penuh */
+    text-align: left; /* Teks rata kiri */
+    border: none; /* Menghapus border default */
+    cursor: pointer; /* Menunjukkan kursor pointer */
+    font-size: 1.1em; /* Ukuran font */
+    transition: background-color 0.3s; /* Transisi halus untuk perubahan warna */
+}
+
+.accordion-btn:hover {
+    background-color: #e0e0e0; /* Warna latar belakang saat hover */
+}
+
+.accordion-content {
+    padding: 15px; /* Padding untuk konten */
+    display: none; /* Sembunyikan konten secara default */
+    background-color: #f9f9f9; /* Warna latar belakang konten */
+    border-top: 1px solid #eee; /* Garis atas untuk konten */
+}
+
+.accordion-item.active .accordion-content {
+    display: block; /* Tampilkan konten jika item aktif */
+}
+
+.accordion-item.active .accordion-btn {
+    background-color: #d0e7ff; /* Warna latar belakang tombol saat aktif */
+    color: #0056b3; /* Warna teks saat aktif */
+}
+
+/* --- Contact Page Specific Styling --- */
+/* Existing styles for .contact-form-container, .contact-form-container::before, .contact-form, .contact-info .card, .working-hours, .social-links, .social-links p, .social-links .social-icon should be updated as per contact.html inline style block */
+
+/* New/Updated styles for contact page elements */
+.contact-info .card h4 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info .card p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.contact-info .card p i {
+    color: var(--primary-color);
+    font-size: 1.1em;
+    margin-top: 3px; /* Align icon with text */
+}
+
+.text-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Form specific styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-bg);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.form-row .btn {
+    padding: 12px 25px; /* Smaller padding for form buttons */
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+.form-row .btn-secondary {
+    background-color: #6c757d;
+    color: var(--white);
+    border: none;
+}
+
+.form-row .btn-secondary:hover {
+    background-color: #5a6268;
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+#form-status {
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+#form-status.success {
+    background-color: #e8f5e9; /* Light green */
+    color: #2e7d32; /* Dark green */
+    border: 1px solid #a5d6a7;
+}
+
+#form-status.error {
+    background-color: #ffebee; /* Light red */
+    color: #c62828; /* Dark red */
+    border: 1px solid #ef9a9a;
+}
+
+/* Error message for form validation */
+.error-message {
+    color: #D32F2F; /* Red */
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #D32F2F !important;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .contact-form-container, .contact-info .card {
+        padding: 25px;
+    }
+    .form-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-row .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Styling for select dropdowns to match input fields */
+.form-group select {
+    width: 100%;
+    padding: 12px 15px; /* Consistent padding */
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1em; /* Standard font size */
+    color: #495057; /* Darker text color */
+    background-color: #ffffff; /* White background */
+    appearance: none; /* Remove default system styling for dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23495057%22%20d%3D%22M192%20320c-8.188%200-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75%200-45.25s32.75-12.5%2045.25%200L192%20263.5l137.4-137.4c12.5-12.5%2032.75-12.5%2045.25%200s12.5%2032.75%200%2045.25l-160%20160C208.38%20316.88%20200.19%20320%20192%20320z%22%2F%3E%3C%2Fsvg%3E'); /* Custom SVG arrow */
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 0.8em; /* Size of the custom arrow */
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group select:focus {
+    border-color: var(--primary-color); /* Highlight on focus */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(68, 157, 68, 0.25); /* Subtle shadow on focus */
+}
+
+.form-group select:hover {
+    border-color: #a3ccac; /* Slightly darker border on hover */
+}
+
+/* Pastikan ini ada di style.css Anda */
+#paymentMethodDetails {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#paymentMethodDetails h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+#paymentMethodDetails ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#paymentMethodDetails ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.e-wallet-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.btn-e-wallet {
+    background-color: #f0f0f0;
+    color: #333; /* Warna teks gelap */
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95em;
+}
+
+.btn-e-wallet img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.btn-e-wallet:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
+.small-text {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: #dc3545; /* Red color for error */
+    font-size: 0.875em;
+    margin-top: 5px;
+    display: none; /* Hide by default */
+}
+
+/* Style for inputs with errors */
+input.input-error,
+select.input-error,
+textarea.input-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Styling for custom file input to match other inputs */
+.form-group input[type="file"] {
+    display: block; /* Make it take full width */
+    width: 100%;
+    padding: 10px 15px; /* Adjust padding */
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #495057;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden; /* Hide default button */
+}
+
+.form-group input[type="file"]::before {
+    content: 'Pilih File'; /* Custom button text */
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 8px 15px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type="file"]:hover::before {
+    background-color: var(--dark-primary-color);
+}
+
+.form-group input[type="file"]:active::before {
+    background: var(--dark-primary-color);
+}
+
+/* Basic Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px; /* Space for fixed header if any */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Centered with flexbox */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#qris-code-image {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+#qris-countdown {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px;
+    color: var(--primary-color);
+}
+
+#payment-status {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.status-pending {
+    color: #FFA000; /* Orange */
+    background-color: #FFF3E0;
+}
+
+.status-success {
+    color: #388E3C; /* Green */
+    background-color: #E8F5E9;
+}
+
+.status-failed {
+    color: #D32F2F; /* Red */
+    background-color: #FFEBEE;
+}
+
+.modal-actions {
+    margin-top: 30px;
+}
+
+.modal-actions .btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    min-width: 150px; /* Ensure buttons have a minimum width */
+}
+
+
+
